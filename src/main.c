@@ -10,11 +10,6 @@ static int	check_extension(const char *path)
 	return (!ft_strncmp(path + len - 4, ".cub", 4));
 }
 
-static void	init_game_struct(t_game *game)
-{
-	ft_bzero(game, sizeof(t_game));
-}
-
 static void	setup_hooks(t_game *game)
 {
 	mlx_hook(game->win, EVENT_KEY_PRESS, MASK_KEY_PRESS, handle_key_press, game);
@@ -31,7 +26,7 @@ int	main(int argc, char **argv)
 		return (print_error("Usage: ./cub3D <map.cub>"));
 	if (!check_extension(argv[1]))
 		return (print_error("Invalid file extension"));
-	init_game_struct(&game);
+	ft_bzero(&game, sizeof(t_game));
 	if (parse_scene(&game, argv[1]))
 	{
 		destroy_game(&game);
