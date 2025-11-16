@@ -142,7 +142,6 @@ void	update_game_state(t_game *game);
 
 /* ------------------------------ render ---------------------------------- */
 void	render_frame(t_game *game);
-void	clear_frame(t_img *img, int color);
 void	draw_pixel(t_img *img, int x, int y, int color);
 int		get_color_from_tex(t_img *tex, int x, int y);
 int		rgb_to_int(t_color color);
@@ -166,10 +165,8 @@ char	*ft_substr(char *s, unsigned int start, size_t len);
 int		ft_is_space(char c);
 int		ft_is_digit(int c);
 int		ft_atoi_strict(const char *str, int *out);
-void	*ft_calloc(size_t count, size_t size);
 void	*safe_malloc(size_t size);
 void	ft_bzero(void *ptr, size_t size);
-void	*ft_memcpy(void *dst, const void *src, size_t n);
 int		print_error(const char *msg);
 char	*get_next_line(int fd);
 char	**arr_push(char ***arr, int *len, char *line);

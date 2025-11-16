@@ -19,24 +19,6 @@ void	draw_pixel(t_img *img, int x, int y, int color)
 	*(int *)dst = color;
 }
 
-void	clear_frame(t_img *img, int color)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	while (y < img->height)
-	{
-		x = 0;
-		while (x < img->width)
-		{
-			draw_pixel(img, x, y, color);
-			x++;
-		}
-		y++;
-	}
-}
-
 int	get_color_from_tex(t_img *tex, int x, int y)
 {
 	char	*dst;
