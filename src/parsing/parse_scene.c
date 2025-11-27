@@ -15,9 +15,8 @@ static int	process_line(t_game *game, char *line)
 
 int	parse_scene(t_game *game, const char *path)
 {
-	int		fd;
-	char	*line;
-
+	int (fd);
+	char *(line);
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
 		return (print_error("Unable to open .cub file"));
@@ -28,6 +27,7 @@ int	parse_scene(t_game *game, const char *path)
 			break ;
 		if (process_line(game, line))
 		{
+			get_next_line(-1);
 			free(line);
 			close(fd);
 			return (print_error("Failed to parse file"));

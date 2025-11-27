@@ -52,7 +52,11 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	if (fd < 0)
+	{
+		free (s_line);
+		s_line = NULL;
 		return (NULL);
+	}
 	buf = malloc((size_t)100 + 1);
 	if (!buf)
 		return (NULL);
