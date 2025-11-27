@@ -45,24 +45,18 @@ static int	assign_color(t_config *cfg, char type, t_color color)
 	return (0);
 }
 
-static int	require_comma(const char *line, int *index)
-{
-	if (line[*index] != ',')
-		return (print_error("Missing comma in color"));
-	(*index)++;
-	return (0);
-}
-
 static int	parse_rgb_values(const char *line, int *idx, t_color *color)
 {
 	if (parse_component(line, idx, &color->r))
 		return (-1);
-	if (require_comma(line, idx))
-		return (-1);
+	if (line[*idx] != ',')
+		return (print_error("Missing comma in color"));
+	(*idx)++;
 	if (parse_component(line, idx, &color->g))
 		return (-1);
-	if (require_comma(line, idx))
-		return (-1);
+	if (line[*idx] != ',')
+		return (print_error("Missing comma in color"));
+	(*idx)++;
 	if (parse_component(line, idx, &color->b))
 		return (-1);
 	return (0);

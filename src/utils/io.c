@@ -25,7 +25,6 @@ static char	*ft_get_line(int fd, char *s_line, char *buf)
 	ssize_t	ret;
 
 	ret = 1;
-	
 	while (ret != 0)
 	{
 		ret = read(fd, buf, 100);
@@ -64,39 +63,4 @@ char	*get_next_line(int fd)
 		return (NULL);
 	s_line = extract_line(line);
 	return (line);
-}
-
-char	**arr_push(char ***arr, int *len, char *line)
-{
-	char	**tmp;
-	int		i;
-
-	tmp = safe_malloc(sizeof(char *) * (*len + 2));
-	i = 0;
-	while (i < *len)
-	{
-		tmp[i] = (*arr)[i];
-		i++;
-	}
-	tmp[i] = line;
-	tmp[i + 1] = NULL;
-	free(*arr);
-	*arr = tmp;
-	(*len)++;
-	return (*arr);
-}
-
-void	free_str_array(char **arr)
-{
-	int	i;
-
-	if (!arr)
-		return ;
-	i = 0;
-	while (arr[i])
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
 }

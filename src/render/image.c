@@ -2,9 +2,9 @@
 
 int	rgb_to_int(t_color color)
 {
-	return ((color.r & 0xFF) << 16)
+	return (((color.r & 0xFF) << 16)
 		| ((color.g & 0xFF) << 8)
-		| (color.b & 0xFF);
+		| (color.b & 0xFF));
 }
 
 void	draw_pixel(t_img *img, int x, int y, int color)

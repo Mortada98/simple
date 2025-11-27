@@ -23,7 +23,8 @@ int	parse_scene(t_game *game, const char *path)
 		return (print_error("Unable to open .cub file"));
 	while (1)
 	{
-		if (get_next_line(fd) == NULL)
+		line = get_next_line(fd);
+		if (line == NULL)
 			break ;
 		if (process_line(game, line))
 		{

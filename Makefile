@@ -24,24 +24,22 @@ SRC_FILES	= \
 	src/utils/memory.c \
 	src/utils/error.c \
 	src/utils/string.c \
+	src/utils/string_mod.c \
+	src/utils/char_check.c \
 	src/utils/convert.c \
 	src/utils/io.c \
 	src/utils/dispose.c
 
-DEBUG_SRC	= src/debug/print_scene_debug.c
 
 OBJ_DIR		= build
 OBJ_FILES	= $(SRC_FILES:%.c=$(OBJ_DIR)/%.o)
 
-DEBUG_OBJ_FILES = $(filter-out $(OBJ_DIR)/src/main.o, $(OBJ_FILES))
 
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
 	$(CC) $(OBJ_FILES) $(LDFLAGS) -o $@
 
-debug: $(DEBUG_OBJ_FILES)
-	$(CC) $(DEBUG_OBJ_FILES) $(CFLAGS) $(DEBUG_SRC) $(LDFLAGS) -o print_scene_debug
 
 $(OBJ_DIR)/%.o: %.c includes/cub3d.h
 	@mkdir -p $(dir $@)

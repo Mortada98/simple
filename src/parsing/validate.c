@@ -12,8 +12,8 @@ static int	check_neighbors(t_map *map, int x, int y)
 
 static int	check_map_cells(t_map *map)
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
 	char	c;
 
 	y = 0;

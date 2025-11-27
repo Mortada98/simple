@@ -100,33 +100,3 @@ int	finalize_map_grid(t_map *map)
 	}
 	return (0);
 }
-
-static void	build_grid_rows(t_map *map, char **lines, int width, int count)
-{
-	int	i;
-
-	i = 0;
-	while (i < count)
-	{
-		map->grid[i] = safe_malloc(width + 1);
-		fill_row(map->grid[i], lines[i], width);
-		free(lines[i]);
-		i++;
-	}
-}
-
-int	finalize_map(t_map *map, char **lines, int count)
-{
-	int	width;
-
-	if (count <= 0)
-		return (print_error("Map section is empty"));
-	width = get_max_width(lines, count);
-	if (width == 0)
-		return (print_error("Map width is zero"));
-	map->grid = safe_malloc(sizeof(char *) * count);
-	map->width = width;
-	map->height = count;
-	build_grid_rows(map, lines, width, count);
-	return (0);
-}

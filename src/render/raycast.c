@@ -2,7 +2,7 @@
 
 static void	draw_wall(t_game *game, int x, t_ray *ray)
 {
-	t_img	*tex;
+	t_img		*tex;
 	t_column	col;
 
 	if (ray->perp_dist <= 0)

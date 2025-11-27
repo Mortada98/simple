@@ -12,8 +12,10 @@ static int	check_extension(const char *path)
 
 static void	setup_hooks(t_game *game)
 {
-	mlx_hook(game->win, EVENT_KEY_PRESS, MASK_KEY_PRESS, handle_key_press, game);
-	mlx_hook(game->win, EVENT_KEY_RELEASE, MASK_KEY_RELEASE, handle_key_release, game);
+	mlx_hook(game->win, EVENT_KEY_PRESS, MASK_KEY_PRESS,
+		handle_key_press, game);
+	mlx_hook(game->win, EVENT_KEY_RELEASE, MASK_KEY_RELEASE,
+		handle_key_release, game);
 	mlx_hook(game->win, EVENT_DESTROY, 0, handle_close, game);
 	mlx_loop_hook(game->mlx, game_loop, game);
 }

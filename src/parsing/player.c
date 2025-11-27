@@ -1,34 +1,38 @@
 #include "cub3d.h"
 
+static void	set_dir(t_player *p, double dx, double dy)
+{
+	p->dir_x = dx;
+	p->dir_y = dy;
+}
+
+static void	set_plane(t_player *p, double px, double py)
+{
+	p->plane_x = px;
+	p->plane_y = py;
+}
+
 static void	set_orientation(t_player *player, char dir)
 {
 	if (dir == 'N')
 	{
-		player->dir_x = 0;
-		player->dir_y = -1;
-		player->plane_x = 0.66;
-		player->plane_y = 0;
+		set_dir(player, 0, -1);
+		set_plane(player, 0.66, 0);
 	}
 	else if (dir == 'S')
 	{
-		player->dir_x = 0;
-		player->dir_y = 1;
-		player->plane_x = -0.66;
-		player->plane_y = 0;
+		set_dir(player, 0, 1);
+		set_plane(player, -0.66, 0);
 	}
 	else if (dir == 'E')
 	{
-		player->dir_x = 1;
-		player->dir_y = 0;
-		player->plane_x = 0;
-		player->plane_y = 0.66;
+		set_dir(player, 1, 0);
+		set_plane(player, 0, 0.66);
 	}
 	else if (dir == 'W')
 	{
-		player->dir_x = -1;
-		player->dir_y = 0;
-		player->plane_x = 0;
-		player->plane_y = -0.66;
+		set_dir(player, -1, 0);
+		set_plane(player, 0, -0.66);
 	}
 }
 

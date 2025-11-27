@@ -30,8 +30,8 @@
 # define EVENT_KEY_PRESS 2
 # define EVENT_KEY_RELEASE 3
 # define EVENT_DESTROY 17
-# define MASK_KEY_PRESS (1L << 0)
-# define MASK_KEY_RELEASE (1L << 1)
+# define MASK_KEY_PRESS 1L
+# define MASK_KEY_RELEASE 2L
 
 typedef struct s_color
 {
@@ -152,7 +152,8 @@ int		ray_step_until_hit(t_game *game, t_ray *ray);
 int		select_texture_index(t_game *game, t_ray *ray);
 void	compute_wall_limits(int line_height, int *start, int *end);
 int		compute_tex_x(t_game *game, t_ray *ray, t_img *tex);
-void	draw_texture_column(t_game *game, t_ray *ray, t_img *tex, t_column *col);
+void	draw_texture_column(t_game *game, t_ray *ray, t_img *tex,
+			t_column *col);
 
 /* ------------------------------ utils ----------------------------------- */
 int		ft_strlen(const char *s);
@@ -169,8 +170,7 @@ void	*safe_malloc(size_t size);
 void	ft_bzero(void *ptr, size_t size);
 int		print_error(const char *msg);
 char	*get_next_line(int fd);
-char	**arr_push(char ***arr, int *len, char *line);
-void	free_str_array(char **arr);
+
 char	*trim_spaces(char *str);
 int		is_map_line(const char *line);
 int		is_all_space(const char *line);
@@ -180,7 +180,7 @@ int		parse_texture_line(t_config *cfg, const char *line);
 int		parse_color_line(t_config *cfg, const char *line);
 int		add_map_line(t_map *map, char *line);
 int		finalize_map_grid(t_map *map);
-int		finalize_map(t_map *map, char **lines, int count);
+
 int		validate_scene(t_game *game);
 int		setup_player(t_game *game);
 int		scene_config_ready(t_config *cfg);
