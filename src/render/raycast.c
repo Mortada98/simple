@@ -6,7 +6,7 @@
 /*   By: mbouizak <mbouizak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 17:25:13 by mbouizak          #+#    #+#             */
-/*   Updated: 2025/12/17 17:25:52 by mbouizak         ###   ########.fr       */
+/*   Updated: 2025/12/21 15:02:33 by mbouizak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	draw_wall(t_game *game, int x, t_ray *ray)
 		ray->perp_dist = 0.0001;
 	col.line_height = (int)(WIN_HEIGHT / ray->perp_dist);
 	compute_wall_limits(col.line_height, &col.start, &col.end);
-	tex = &game->texture[select_texture_index(game, ray)];
+	tex = &game->texture[select_texture_index(ray)];
 	col.tex_x = compute_tex_x(game, ray, tex);
 	if (col.tex_x < 0)
 		col.tex_x = 0;

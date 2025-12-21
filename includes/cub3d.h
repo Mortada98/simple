@@ -6,7 +6,7 @@
 /*   By: mbouizak <mbouizak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 09:47:11 by mbouizak          #+#    #+#             */
-/*   Updated: 2025/12/21 09:47:12 by mbouizak         ###   ########.fr       */
+/*   Updated: 2025/12/21 15:04:27 by mbouizak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <mlx.h>
 
 # define WIN_WIDTH 1920
-# define WIN_HEIGHT 1080
+# define WIN_HEIGHT  1080
 
 # define TEX_NO 0
 # define TEX_SO 1
@@ -161,7 +161,7 @@ void	render_background(t_game *game);
 void	ray_init(t_game *game, t_ray *ray, int x);
 void	ray_set_step(t_game *game, t_ray *ray);
 int		ray_step_until_hit(t_game *game, t_ray *ray);
-int		select_texture_index(t_game *game, t_ray *ray);
+int		select_texture_index(t_ray *ray);
 void	compute_wall_limits(int line_height, int *start, int *end);
 int		compute_tex_x(t_game *game, t_ray *ray, t_img *tex);
 void	draw_texture_column(t_game *game, t_ray *ray, t_img *tex,
