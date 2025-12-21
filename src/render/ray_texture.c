@@ -6,7 +6,7 @@
 /*   By: mbouizak <mbouizak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 17:25:11 by mbouizak          #+#    #+#             */
-/*   Updated: 2025/12/17 17:25:52 by mbouizak         ###   ########.fr       */
+/*   Updated: 2025/12/21 10:19:05 by mbouizak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	select_texture_index(t_game *game, t_ray *ray)
 	if (ray->side == 0)
 	{
 		if (ray->dir_x > 0)
-			return (TEX_WE);
-		return (TEX_EA);
+			return (TEX_EA);
+		return (TEX_WE);
 	}
 	if (ray->dir_y > 0)
 		return (TEX_SO);
